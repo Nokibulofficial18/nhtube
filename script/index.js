@@ -2,7 +2,7 @@ document.getElementById("post-container").innerHTML ="";
 const loadAllPosts = async(category) =>{
     let url;
     if(category){
-        url = `https://openapi.programming-hero.com/api/retro-forum/posts?category="${category}"`;
+        url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${category}`;
     }
     else{
         url = `https://openapi.programming-hero.com/api/retro-forum/posts`;
@@ -17,6 +17,7 @@ const loadAllPosts = async(category) =>{
 
 const displayAllPost = (posts) =>{
     const postContainer = document.getElementById("post-container");
+    postContainer.innerHTML="";
     posts.forEach(post=>{
         const div = document.createElement('div');
         div.innerHTML=
@@ -99,6 +100,7 @@ const handleCount =()=>{
 loadAllPosts();
 
 const handleSearchByCategory=()=>{
-    const searchText = document.getElementById("searchPostsBtn").value;
+    const searchText = document.getElementById("searchPosts").value;
     loadAllPosts(searchText)
 }
+
